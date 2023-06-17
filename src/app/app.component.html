@@ -1,0 +1,8 @@
+<nav *ngIf="loginService.isSignedIn">
+  <a routerLink="/panel">Panel</a>
+  <a routerLink="/landing">Landing</a>
+</nav>
+
+<app-login *ngIf="!loginService.isSignedIn"></app-login>
+
+<router-outlet *ngIf="loginService.isSignedIn"></router-outlet>
