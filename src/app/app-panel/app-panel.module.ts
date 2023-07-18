@@ -9,7 +9,8 @@ import { AllPostsComponent } from './posts/all-posts/all-posts.component';
 import { PostsComponent } from './posts/posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppPanelComponent,
@@ -22,7 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     AppPanelRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    ReactiveFormsModule
   ],
   exports:[
     AppPanelComponent

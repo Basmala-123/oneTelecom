@@ -1,23 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServicesService } from 'src/app/services/api-services.service';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-post-control',
   templateUrl: './post-control.component.html',
   styleUrls: ['./post-control.component.css']
 })
 export class PostControlComponent implements OnInit{
-  
-  constructor(private http: ApiServicesService ) { }
-  newPost!: { title: string; body: string; };
-
-  ngOnInit(): void {
-  }
-
+  postForm: FormGroup=this.fb.group({
+    title: ['', Validators.required],
+    body: ['',Validators.required],
+    userId: ['', Validators.required],
+  });;
+  constructor(private http: ApiServicesService,private fb: FormBuilder ) { }
+  ngOnInit(): void {}
   addPost(): void {
-    this.http.postPosts('posts', this.newPost).subscribe((response: any) => {
-      console.log('New post added:', response);
-      this.newPost = { title: '', body: '' };
-    });
+    if (this.postForm.valid) {
+      this.http.addPost(this.postForm.value).subscribe(() => {
+          console.log('Product added successfully');
+          this.postForm.reset();
+        },
+        (error: any) => console.error(error)
+      );
+    }
   }
 }

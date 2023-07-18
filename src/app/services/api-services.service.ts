@@ -21,8 +21,12 @@ export class ApiServicesService {
   postPosts(endpoint: string, data: any){
     return this._http.post(`${this.apiUrl}/${endpoint}`, data);
   }
+  addPost(postData:any){
+    return this._http.post(`${this.apiUrl}/posts`, postData)
 
-  delete<T>(id:number): Observable<T> {
-    return this._http.delete<T>(`${this.apiUrl}`);
+  }
+
+  delete(id:number): Observable <any> {
+    return this._http.delete(`${this.apiUrl}/posts/${id}`);
   }
 }

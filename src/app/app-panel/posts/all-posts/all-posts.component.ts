@@ -1,8 +1,7 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { ApiServicesService } from 'src/app/services/api-services.service';
-
-
+import {NgxPaginationModule} from 'ngx-pagination';
 @Component({
   selector: 'app-all-posts',
   templateUrl: './all-posts.component.html',
@@ -11,6 +10,9 @@ import { ApiServicesService } from 'src/app/services/api-services.service';
 export class AllPostsComponent implements OnInit{
 
   posts :any;
+  deletedId:number=0;
+  p:number = 1;
+  itemsPerPage = 10;
   constructor( private http:ApiServicesService){}
   ngOnInit(): void {
       this.getPosts();
@@ -20,6 +22,16 @@ export class AllPostsComponent implements OnInit{
       this.posts=post;
       console.log("All Postssss", this.posts);
     })
+  }
+  idOfItem(id:number){
+    this.deletedId=id;
+  }
+  deleteItem() {
+    // Delete the post with this.idToDelete
+    this.http.delete(this.deletedId).subscribe((el:any)=>{
+      console.log("dddddd");
+      this.deletedId = 0;
+    } )
   }
 
 }

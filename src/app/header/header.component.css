@@ -1,0 +1,14 @@
+.logo{
+  height: 80px;
+}
+.nav-link{
+  font-weight: 500;
+
+}
+a.nav-link {
+  font-size: 1.2rem;
+  margin: 0 1rem;
+}
+.link-active{
+  color:#0478A8;
+}
