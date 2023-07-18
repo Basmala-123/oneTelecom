@@ -23,7 +23,6 @@ export class ApiServicesService {
   }
   addPost(postData:any){
     return this._http.post(`${this.apiUrl}/posts`, postData)
-
   }
 
   delete(id:number): Observable <any> {

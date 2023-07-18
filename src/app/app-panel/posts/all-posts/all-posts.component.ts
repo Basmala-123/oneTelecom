@@ -20,7 +20,6 @@ export class AllPostsComponent implements OnInit{
   getPosts():void{
     this.http.getAllPosts().subscribe((post:any)=>{
       this.posts=post;
-      console.log("All Postssss", this.posts);
     })
   }
   idOfItem(id:number){
@@ -29,7 +28,6 @@ export class AllPostsComponent implements OnInit{
   deleteItem() {
     // Delete the post with this.idToDelete
     this.http.delete(this.deletedId).subscribe((el:any)=>{
-      console.log("dddddd");
       this.deletedId = 0;
     } )
   }
