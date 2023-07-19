@@ -3,14 +3,24 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
 ## This is a simple task for which We use Firebase Auth
 ### Log in 
-email: basmala@gmail.com
+email: basmala@gmail.com 
+
 password:123456
+
+## video showing the functions in task
+
+
+https://github.com/Basmala-123/onetelecom/assets/82044606/34c96cc8-0e41-439f-81a0-6c93029fa95f
+
+
 
 ## We are using lazy loading routing to load the app panel and landing Modules
 ## We are using this API for Calling HTTp request "https://jsonplaceholder.typicode.com/"
 
-## Development server
 
+## Development server
+Before you run project 
+npm install to download all packages 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
